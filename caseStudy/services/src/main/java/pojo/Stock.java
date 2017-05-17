@@ -16,15 +16,45 @@
 
 package pojo;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.util.*;
+
+
 /**
  * This class will define a company's end-of-day stock price
  * Look at resources/data/historicalStockData.json
  */
 public class Stock {
 
-    // TODO - Think back to your modelling session
-    // Define the attributes of a stock price based on the
-    // provided data in resources/data
+    @JsonProperty
+    private String name;
+    @JsonProperty
+    private List<Map<String, Double>> dailyClosePrice;
 
-    // TODO - add getter and setter methods for your attributes
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public List<Map<String, Double>> getDailyClosePrice() {
+        return dailyClosePrice;
+    }
+
+    public void setDailyClosePrice(List<Map<String, Double>> dailyClosePrice) {
+        List<Map<String, Double>> newPrices=new ArrayList <Map<String, Double>>();
+
+        Map<String, Double> prices = new LinkedHashMap<String, Double>();
+        for(Map<String, Double> x: dailyClosePrice){
+            for(Map.Entry<String, Double> entry : x.entrySet()) {
+                String str = entry.getKey().replaceAll("/", "-");
+                prices.put(str, entry.getValue());
+            }
+            newPrices.add(prices);
+        }
+        this.dailyClosePrice = newPrices;
+    }
 }
