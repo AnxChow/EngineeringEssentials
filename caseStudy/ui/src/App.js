@@ -16,11 +16,10 @@
 
 import React from 'react';
 import './style/App.css';
-
-/**
- * TODO:
- * Import your components
- */
+//import Charts from './components/Charts.js';
+//import Date from './components/Date.js';
+//import StockTicker from '.components/StockTicker.js';
+import LineChart from '.components/charts/LineChart.js';
 
 
 class App extends React.Component{
