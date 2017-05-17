@@ -16,11 +16,37 @@
 
 package pojo;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  * This class will define a company and its attributes
  * Look at resources/data/companyInfo.json
  */
+
 public class Company {
+
+    @JsonProperty
+    private String symbol;
+    @JsonProperty
+    private String name;
+    @JsonProperty
+    private String headquartersCity;
+    @JsonProperty
+    private String headquartersStateOrCountry;
+    @JsonProperty
+    private int numberOfEmployees;
+    @JsonProperty
+    private String sector;
+    @JsonProperty
+    private String industry;
+
+    public String getSymbol(){
+      return symbol;
+    }
+
+    public String getName(){
+      return name;
+    }
 
     // TODO - Think back to your modelling session
     // Define the attributes of a Company based on the
