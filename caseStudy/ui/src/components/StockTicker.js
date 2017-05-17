@@ -39,7 +39,7 @@
  * https://www.npmjs.com/package/react-select
  * http://jedwatson.github.io/react-select/
  * https://github.com/JedWatson/react-select
- * 
+ *
  * react-boostrap-typeahead
  * https://www.npmjs.com/package/react-bootstrap-typeahead
  * http://ericgio.github.io/react-bootstrap-typeahead/
@@ -49,8 +49,8 @@
 import React from 'react';
 //import {Typeahead} from 'react-bootstrap-typeahead'; UNCOMMENT this line if you are using the react-bootstrap-typeeahead component
 
-/* If you chose to use react-boostrap-typeahead, look at AsyncTypeahead for a component that 
- * provides auto-complete suggestions as you type. This would require adding a search handler 
+/* If you chose to use react-boostrap-typeahead, look at AsyncTypeahead for a component that
+ * provides auto-complete suggestions as you type. This would require adding a search handler
  * method for an onSearch prop.
  * https://github.com/ericgio/react-bootstrap-typeahead/blob/master/example/examples/AsyncExample.react.js
  */

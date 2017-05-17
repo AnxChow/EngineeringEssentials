@@ -48,6 +48,32 @@ public class Company {
       return name;
     }
 
+    public String getHeadquartersCity() { return headquartersCity; }
+
+    public String getHeadquartersStateOrCountry() { return headquartersStateOrCountry; }
+
+    public int getNumberOfEmployees() { return numberOfEmployees; }
+
+    public String getSector() { return sector; }
+
+    public String getIndustry() { return industry; }
+
+    public void setSymbol(String symbol) { this.symbol = symbol; }
+
+    public void setName(String name) { this.name = name; }
+
+    public void setHeadquartersCity(String headquartersCity) { this.headquartersCity = headquartersCity; }
+
+    public void setHeadquartersStateOrCountry(String headquartersStateOrCountry) {
+        this.headquartersStateOrCountry = headquartersStateOrCountry;
+    }
+
+    public void setNumberOfEmployees(int numberOfEmployees) { this.numberOfEmployees = numberOfEmployees; }
+
+    public void setSector(String sector) { this.sector = sector; }
+
+    public void setIndustry(String industry) { this.industry = industry; }
+
     // TODO - Think back to your modelling session
     // Define the attributes of a Company based on the
     // provided data in resources/data
