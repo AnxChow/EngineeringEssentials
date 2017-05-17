@@ -37,10 +37,8 @@ class App extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleSubmit(author, message) {
-    const newCard = {author: author, text: message};
-    const cards = [...this.state.cards, newCard];
-    this.setState({cards: cards});
+  handleSubmit() {
+
   }
   
   render() {
