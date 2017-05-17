@@ -47,7 +47,7 @@
  */
 
 import React from 'react';
-//import {Typeahead} from 'react-bootstrap-typeahead'; UNCOMMENT this line if you are using the react-bootstrap-typeeahead component
+import {Typeahead} from 'react-bootstrap-typeahead'; //UNCOMMENT this line if you are using the react-bootstrap-typeeahead component
 
 /* If you chose to use react-boostrap-typeahead, look at AsyncTypeahead for a component that
  * provides auto-complete suggestions as you type. This would require adding a search handler
@@ -71,6 +71,18 @@ class StockTicker extends React.Component {
      * If you are having difficulty with this, you may hard code the options array from the company data provided for the
      * services.
      */
+
+    const prefetched = [
+                       	{
+                       		"symbol":"ATVI",
+                       		"name":"Activision Blizzard Inc",
+                       		"headquartersCity":"Santa Monica",
+                       		"headquartersStateOrCountry":"CA",
+                       		"numberOfEmployees":9600,
+                       		"sector":"Technology",
+                       		"industry":"Internet Gaming"
+                       	}];
+
     constructor(props) {
         super(props);
         this.state = {
@@ -89,10 +101,21 @@ class StockTicker extends React.Component {
              */
         };
         this.handleChange = this.handleChange.bind(this);
+        this.options = ["ATVI"]
+
     }
 
     handleChange(event) {
+        console.log(event)
         if (event.length > 0) {
+//            fetch('http://localhost:8080/main', {method : get}).then(function(response) {
+//                    // Convert to JSON
+//                    return response.json();
+//                   }).then(function(j) {
+//                    // Yay, `j` is a JavaScript object
+//                    console.log(j);
+//                   });
+
             /**
              * TODO
              * Make a request to your service to GET company information for the selected company and set it in state.
@@ -103,10 +126,11 @@ class StockTicker extends React.Component {
              * to handle errors). If you successfully retrieve this information, you can set the state objects
              * and render it.
              */
+
             this.setState({showinfo: true});
 
             //this.props.onChange(..);  Call this.props.onChange with the selected symbol to propagate it
-            // to the App component, which will handle it via its own onChane prop,
+            // to the App component, which will handle it via its own onChange prop,
             // ultimately  used to fetch the data for the LineChart component.
 
         }
@@ -132,19 +156,35 @@ class StockTicker extends React.Component {
                 <div className="ticker-input">
                     <p><strong>Stock Ticker</strong></p>
                     <div className="stockticker-typeahead">
-                        {/* useful props if you decide to use react-bootstrap-typeahead
-                        <Typeahead
-                             align=
-                             filterBy=
-                             labelKey=
+                      <Typeahead
+                             align ='left'
+                             labelKey= ''
                              onChange={this.handleChange}
-                             minLength=
+                             minLength= 2
                              placeholder="Company Name/Ticker"
-                             options=
+                             options={this.options}
                         />
-                        */}
+
                     </div>
+
                 </div>
+                if (showcompanyinfo){
+                    <div>
+                        <h3>Company Info</h3>
+                        <p> {this.state.company.name}</p>
+                        <p> {this.state.company.symbol}</p>
+                        <p> {this.state.company.city}</p>
+                        <p> {this.state.company.state}</p>
+                        <p> {this.state.company.sector}</p>
+                        <p> {this.state.company.industry}</p>
+                    </div> }
+                else{
+                <div>
+                <p>No Company Selected</p>
+                </div>
+                }
+
+
                 {
                     /**
                      *  TODO
@@ -154,6 +194,7 @@ class StockTicker extends React.Component {
                      *  http://reactpatterns.com/#conditional-rendering
                      */
                 }
+
             </div>
         );
     }
@@ -161,3 +202,6 @@ class StockTicker extends React.Component {
 }
 
 //Don't forget to export your component!
+
+
+export default StockTicker
